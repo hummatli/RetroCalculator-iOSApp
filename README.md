@@ -1,1 +1,1 @@
-# RetroCalculator-sample-iOS10-app
+# RetroCalculator-ios-app
