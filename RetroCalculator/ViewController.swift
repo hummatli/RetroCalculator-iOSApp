@@ -13,6 +13,12 @@ class ViewController: UIViewController {
 
     
     @IBOutlet weak var lblOutput: UILabel!
+    @IBOutlet weak var btnDivide: UIButton!
+    @IBOutlet weak var btnMultiply: UIButton!
+    @IBOutlet weak var btnSubtract: UIButton!
+    @IBOutlet weak var btnAdd: UIButton!
+    @IBOutlet weak var btnEquals: UIButton!
+    
     var btnSound: AVAudioPlayer!
     var runningNumber = ""
     var leftValStr = ""
@@ -53,33 +59,23 @@ class ViewController: UIViewController {
     }
     
  
-    
-    @IBAction func onDividePressed(_ sender: Any) {
-        prosessOperation(operation: .Divide)
-    }
-    
-    @IBAction func onMulti(_ sender: Any) {
-        prosessOperation(operation: .Multiply)
+    @IBAction func onOtherBtnsPressed(sender: UIButton) {
+        switch sender {
+        case btnDivide:
+            prosessOperation(operation: .Divide)
+        case btnMultiply:
+            prosessOperation(operation: .Multiply)
+        case btnSubtract:
+            prosessOperation(operation: .Subtract)
+        case btnAdd:
+            prosessOperation(operation: .Add)
+        case btnEquals:
+            prosessOperation(operation: currentOperation)
+        default:
+            print("Btn has not specified")
+        }
         
     }
-    
-    @IBAction func onSubtractPressed(_ sender: Any) {
-        prosessOperation(operation: .Subtract)
-        
-    }
-    
-    @IBAction func onAddPressed(_ sender: Any) {
-        prosessOperation(operation: .Add)
-        
-    }
-    
-    @IBAction func onEqualPressed(_ sender: Any) {
-        prosessOperation(operation: currentOperation)
-        
-    }
-    
-    
-    
     
     func playSound() {
         if btnSound.isPlaying {
